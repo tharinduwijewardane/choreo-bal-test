@@ -14,6 +14,10 @@ service / on new http:Listener(9090) {
             return error("name should not be empty!");
         }
         log:printInfo("received name: " + name);
+        log:printDebug("This is a debug log");
+        log:printInfo("This is a info log");
+        log:printWarn("This is a warn log");
+        log:printError("This is a error log");
         return "Hello, " + name;
     }
 }
