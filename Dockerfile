@@ -21,10 +21,10 @@ RUN addgroup troupe \
     && rm -rf /var/cache/apk/*
 
 COPY --from=ballerina-builder /src/choreo-bal-test/target/bin/choreo_bal_test.jar /home/ballerina
-RUN chown ballerina /home/ballerina/choreo_bal_test.jar
+RUN chown 10001 /home/ballerina/choreo_bal_test.jar
 
 EXPOSE 9090
-USER ballerina
+USER 10001
 
 # hadolint ignore=DL3025
 CMD java -XX:InitialRAMPercentage=50.0 -XX:+UseContainerSupport -XX:MinRAMPercentage=75.0 -XX:MaxRAMPercentage=75.0 -jar choreo_bal_test.jar
