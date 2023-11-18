@@ -20,7 +20,7 @@ RUN addgroup troupe \
     && chown -R ballerina:troupe /opt/java/openjdk/bin/java \
     && rm -rf /var/cache/apk/*
 
-COPY --from=ballerina-builder /src/choreo-bal-test/target/bin/choreo_bal_test.jar /home/ballerina
+COPY --from=ballerina-builder /src/target/bin/choreo_bal_test.jar /home/ballerina
 RUN chown 10001 /home/ballerina/choreo_bal_test.jar
 
 EXPOSE 9090
