@@ -1,0 +1,15 @@
+apiVersion: core.choreo.dev/v1alpha1
+kind: ComponentConfig
+metadata:
+  name: may31-vs-1
+  projectName: Obs vs code proj
+  annotations:
+    componentType: service
+spec:
+  inbound:
+    - name: May31-vs-1
+      port: 9090
+      type: REST
+      visibility: Public
+      context: .
+      schemaFilePath: openapi.yaml
